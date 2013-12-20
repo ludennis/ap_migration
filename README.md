@@ -1,4 +1,4 @@
 ap_migration
 ============
 
-migration of old db to new db through Django framework and South
+A Django project that migrates the old db to new db through and South 
