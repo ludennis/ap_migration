@@ -10,6 +10,26 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+class Vehicle(models.Model):
+
+    color = models.CharField(max_length=10)
+
+    # e.g. "Honda", "Toyota"
+    make = models.CharField(max_length=30)
+
+    # e.g. "Accord", "Camry"
+    model = models.CharField(max_length=30)
+
+    license_plate = models.CharField(max_length=10)
+
+    state = models.CharField(max_length=20)
+
+    # TODO Same as above
+    trainee = models.OneToOneField('Trainee', blank=True, null=True)
+
+    def __unicode__(self):
+        return self.color + ' ' + self.make + ' ' + self.model
+
 class Hcrecmd(models.Model):
     residenceid = models.IntegerField(db_column='ResidenceID') # Field name made lowercase.
     hcuserid = models.IntegerField(db_column='HCUserID') # Field name made lowercase.
